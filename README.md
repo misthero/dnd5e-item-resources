@@ -13,7 +13,7 @@ Create custom resoruce trackers from every item and show it on your character sh
 
 ## Video:
 Click to view a short tutorial.
-[![Watch the video](https://i.postimg.cc/xjJRnTFh/screenshot-2025-06-03.png)]([https://youtu.be/vt5fpE0bzSY](https://youtu.be/tFYAjJ_s71Y))
+[![Watch the video](https://i.postimg.cc/xjJRnTFh/screenshot-2025-06-03.png)](https://youtu.be/tFYAjJ_s71Y)
 
 
 
