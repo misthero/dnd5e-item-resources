@@ -1,11 +1,18 @@
 # 5e - Resource trackers
-a Foundry VTT module
+Create custom resoruce trackers from every item and show it on your character sheet.
 
 ![GitHub Downloads (all assets, all releases)][download-shield] ![GitHub contributors][contributor-shield] ![GitHub last commit][last-commit-shield] [![Forks][forks-shield]][forks-url] [![Stargazers][stars-shield]][stars-url]
 
 [![Forge Installs][forge-installs]][forge-link] ![Foundry Version](https://img.shields.io/endpoint?label=Foundry%20VTT%20versions:&url=https://foundryshields.com/version?url=https://raw.githubusercontent.com/misthero/dnd5e-item-resources/main/module.json)
 
 [![ko-fi](https://img.shields.io/badge/ko--fi-Support%20Me-red?style=flat-square&logo=ko-fi)](https://ko-fi.com/misthero)
+
+## Instruction
+- Install the module using the manifest url:  `https://github.com/misthero/dnd5e-item-resources/releases/latest/download/module.json`
+- Go to the "Details" tab of the item. If the item allow limited uses you will se a checkbox to enable the tracker, change it's colors and animations.
+
+## Video sample:
+
 
 
 
