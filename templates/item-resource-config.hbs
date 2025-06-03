@@ -1,0 +1,45 @@
+<fieldset class="card resource-bar-config">
+  <legend>Resource bar</legend>
+  <div class="form-group split-group">
+
+    <div class="form-fields">
+      <label class="checkbox" for="resource-bar">{{ localize "dnd5e-item-resources.EnableResourceBar" }}
+        <input type="checkbox" name="flags.dnd5eItemResources.resourceBar" id="resource-bar_{{_id}}" {{#if
+          flags.dnd5eItemResources.resourceBar}}checked{{/if}}>
+      </label>
+      <label class="checkbox" for="resource-bar">{{ localize "dnd5e-item-resources.ResourceBarAnimation" }}
+        <select name="flags.dnd5eItemResources.animation" style="flex: 1;">
+          {{selectOptions animations selected=flags.dnd5eItemResources.animation blank=(localize "DND5E.None")}}
+        </select>
+      </label>
+    </div>
+  </div>
+  <div class="meter-group resource-bar">
+    <div class="label roboto-condensed-upper">
+      <span>Preview</span>
+    </div>
+    <div class="meter progress animation-{{flags.dnd5eItemResources.animation}}" role="meter" aria-valuemin="0"
+      aria-valuenow="{{system.uses.value}}" aria-valuemax="{{system.uses.max}}"
+      style="--bar-animation-name: {{flags.dnd5eItemResources.animation}} ; --bar-percentage: {{percent}}%; --bar-first-color: {{flags.dnd5eItemResources.barFirstColor}}; --bar-second-color: {{flags.dnd5eItemResources.barSecondColor}};">
+      <div class="label">
+        <span class="value">{{system.uses.value}}</span>
+        <span class="separator">/</span>
+        <span class="max">{{system.uses.max}}</span>
+      </div>
+    </div>
+  </div>
+  <div class="form-group split-group">
+    <div class="form-fields">
+      <label class="checkbox" for="barFirstColor">{{ localize "dnd5e-item-resources.firstColor" }}
+        <input type="color" value="{{flags.dnd5eItemResources.barFirstColor}}"
+          name="flags.dnd5eItemResources.barFirstColor" />
+      </label>
+      <label class="checkbox" for="barSecondColor">{{ localize "dnd5e-item-resources.secondColor" }}
+        <input type="color" value="{{flags.dnd5eItemResources.barSecondColor}}"
+          name="flags.dnd5eItemResources.barSecondColor" />
+      </label>
+    </div>
+
+  </div>
+
+</fieldset>

@@ -1,0 +1,21 @@
+<div class="meter-group resource-bar">
+  <div class="label roboto-condensed-upper">
+    <span>{{item.name}}</span>
+    {{#if editable}}
+    <button class="config-button unbutton resource-config" data-action="configResource" data-id="{{item._id}}"
+      data-tooltip="{{ item.name }}" aria-label="{{localize "dnd5e-item-resources.config"}} {{item.name}}">
+      <i class="fas fa-cog"></i>
+    </button>
+    {{/if}}
+  </div>
+
+  <div class="meter progress animation-{{animation}}" role="meter" aria-valuemin="0" aria-valuenow="{{value}}"
+    aria-valuemax="{{max}}"
+    style="--bar-animation-name: {{animation}}; --bar-percentage: {{percent}}%; --bar-first-color: {{barFirstColor}}; --bar-second-color: {{barSecondColor}};">
+    <div class="label">
+      <span class="value">{{value}}</span>
+      <span class="separator">/</span>
+      <span class="max">{{max}}</span>
+    </div>
+  </div>
+</div>

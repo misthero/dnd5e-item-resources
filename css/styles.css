@@ -1,0 +1,120 @@
+.meter-group.resource-bar {
+  --bar-first-color: #3a0e5f;
+  --bar-second-color: #8a40c7;
+  --bar-animation-name: scroll;
+  --border-width: 3px;
+  --bar-percentage: 0%;
+  --star-background: url('../img/seamless-energy-clouds.jpg');
+  --energy-background: url('../img/energy.png');
+  --bubbles-background: url('../img/bubbles.png');
+}
+
+.meter-group.resource-bar .progress {}
+
+.meter-group.resource-bar .progress:before {
+  border-color: var(--bar-first-color);
+  inline-size: var(--bar-percentage);
+  background: linear-gradient(to right, var(--bar-first-color), var(--bar-second-color), var(--bar-first-color));
+  animation: var(--bar-animation-name) 5s linear infinite;
+  background-size: 200% 100%;
+  border-style: solid;
+  border-width: 0 var(--border-width) 0 0;
+}
+
+.resource-uses .form-fields>* {
+  align-self: center;
+}
+
+.resource-bar-config input[type="checkbox"]:before {
+  color: var(--dnd5e-color-gold);
+}
+
+.resource-bar-config input[type="checkbox"]:checked::before {
+  color: var(--checkbox-checkmark-color);
+}
+
+.resource-bar-config input[type="color"] {
+  background-color: transparent;
+}
+
+.resource-bar-config input[type="color"],
+.resource-bar-config input[type="checkbox"] {
+  border: 0;
+}
+
+.meter-group.resource-bar .progress[class*="animation-img"]:before {
+  background-size: 200px auto, 200% auto !important;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+  box-shadow: -10px 0 10px -10px var(--bar-first-color) inset, 3px 0 3px -3px #000 inset, 0 3px 3px -3px #000 inset, 0 -3px 3px -3px #000 inset;
+  background-blend-mode: overlay;
+}
+
+
+.meter-group.resource-bar .progress.animation-img-energy:before,
+.meter-group.resource-bar .progress.animation-img-energy-h:before {
+  background-image: var(--energy-background), linear-gradient(to right, var(--bar-first-color), var(--bar-second-color), var(--bar-first-color));
+}
+
+.meter-group.resource-bar .progress.animation-img-energy-h:before {
+  background-size: 100px auto, 200% auto !important;
+}
+
+.meter-group.resource-bar .progress.animation-img-bubbles:before {
+  background-image: var(--bubbles-background), linear-gradient(to right, var(--bar-first-color), var(--bar-second-color), var(--bar-first-color));
+}
+
+.meter-group.resource-bar .progress.animation-img-star:before {
+  background-image: var(--star-background), linear-gradient(to right, var(--bar-first-color), var(--bar-second-color), var(--bar-first-color));
+}
+
+
+@keyframes scroll {
+  0% {
+    background-position: 0 0
+  }
+
+  100% {
+    background-position: -200% 0%
+  }
+}
+
+@keyframes img-energy {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 0% -400px;
+  }
+}
+
+@keyframes img-energy-h {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 800px -200px, 0 0;
+  }
+}
+
+@keyframes img-bubbles {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 0% -400px;
+  }
+}
+
+@keyframes img-star {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 0% -400px;
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "dnd5e-item-resources.EnableResourceBar": "Attiva Barra Risorsa",
+  "dnd5e-item-resources.ResourceBarAnimation": "Animazione Barra Risorsa",
+  "dnd5e-item-resources.firstColor": "Primo Colore",
+  "dnd5e-item-resources.secondColor": "Secondo Colore",
+  "dnd5e-item-resources.preview": "Anteprima",
+  "dnd5e-item-resources.config": "Configura",
+  "dnd5e-item-resources.changeCurrent": "Modifica valore attuale",
+  "dnd5e-item-resources.changeMax": "Modifica valore massimo",
+  "dnd5e-item-resources.energyAnimation": "Energia",
+  "dnd5e-item-resources.energyHAnimation": "Energia Orizzontale",
+  "dnd5e-item-resources.bubblesAnimation": "Bolle",
+  "dnd5e-item-resources.starAnimation": "Stelle"
+}
