@@ -12,10 +12,8 @@ Create custom resoruce trackers from every item and show it on your character sh
 - Go to the "Details" tab of the item. If the item allow limited uses you will se a checkbox to enable the tracker, change it's colors and animations.
 
 ## Video sample:
-
-
-
-
+Click to view a short tutorial.
+[![Watch the video](https://img.youtube.com/vi/tFYAjJ_s71Y/maxresdefault.jpg)]([https://youtu.be/vt5fpE0bzSY](https://youtu.be/tFYAjJ_s71Y))
 
 
 
