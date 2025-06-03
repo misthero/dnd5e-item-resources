@@ -11,7 +11,7 @@ Create custom resoruce trackers from every item and show it on your character sh
 - Install the module using the manifest url:  `https://github.com/misthero/dnd5e-item-resources/releases/latest/download/module.json`
 - Go to the "Details" tab of the item. If the item allow limited uses you will se a checkbox to enable the tracker, change it's colors and animations.
 
-## Video sample:
+## Video:
 Click to view a short tutorial.
 [![Watch the video](https://i.postimg.cc/xjJRnTFh/screenshot-2025-06-03.png)]([https://youtu.be/vt5fpE0bzSY](https://youtu.be/tFYAjJ_s71Y))
 
