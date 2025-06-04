@@ -1,8 +1,6 @@
 /* Main Item Resource module file */
 import { ItemResources } from "./ItemResources.js";
 
-CONFIG.debug.hooks = true;
-
 export const ITEM_RESOURCES_DEFAULTS = {
   barFirstColor: "#3a0e5f",
   barSecondColor: "#8a40c7",
