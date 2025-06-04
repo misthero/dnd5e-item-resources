@@ -1,5 +1,5 @@
 # 5e - Resource trackers
-Create custom resoruce trackers from every item and show it on your character sheet.
+Create custom resource trackers from every item and show it on your character sheet.
 
 ![GitHub Downloads (all assets, all releases)][download-shield] ![GitHub contributors][contributor-shield] ![GitHub last commit][last-commit-shield] [![Forks][forks-shield]][forks-url] [![Stargazers][stars-shield]][stars-url]
 
