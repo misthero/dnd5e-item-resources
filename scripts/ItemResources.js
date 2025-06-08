@@ -47,7 +47,25 @@ export class ItemResources {
 
   static preUpdateItemResources(item, updateData, options, userId) { }
   static createItemResources(item, updateData, options, userId) { }
-  static preDeleteItemResources(item, updateData, options, userId) { }
+
+  /**
+ * Pre-delete hook to handle cleanup of item resource flags when an item is deleted.
+ * @param {Item5e} item - The item being deleted.
+ * @param {Object} options - Options for the deletion.
+ * @param {string} userId - The ID of the user performing the deletion.
+ */
+  static async preDeleteItemResources(item, options, userId) {
+    const actor = item.parent;
+    if (!actor || !actor.flags?.dnd5eItemResources) return;
+
+    const itemId = item.id;
+
+    if (actor.flags.dnd5eItemResources.hasOwnProperty(itemId)) {
+      await actor.update({
+        [`flags.dnd5eItemResources.-=${itemId}`]: null
+      });
+    }
+  }
 
   /**
    * Pre-update hook to handle item resource updates.
