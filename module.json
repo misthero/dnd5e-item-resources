@@ -2,10 +2,10 @@
   "id": "dnd5e-item-resources",
   "title": "5e - Resource trackers",
   "description": "Add custom trackers for your resources to the character sheet.",
-  "version": "0.1.03",
+  "version": "0.1.04",
   "compatibility": {
     "minimum": "13",
-    "verified": "13.344"
+    "verified": "13.345"
   },
   "relationships": {
     "systems": [
