@@ -90,12 +90,7 @@ export class ResourcePopupConfig extends dnd5e.applications.actor.BaseConfigShee
     const flags = foundry.utils.mergeObject(item.flags, data.flags);
     // Check if the uses object has changed
     this.document.system.uses = changedUses;
-    item.update({ [`system.uses`]: changedUses });
-    actor.update({
-      [`flags.dnd5eItemResources.${item._id}.uses.max`]: changedUses.max,
-      [`flags.dnd5eItemResources.${item._id}.uses.value`]: changedUses.max - changedUses.spent,
-      [`flags.dnd5eItemResources.${item._id}.uses.spent`]: changedUses.spent
-    });
+    //item.update({ [`system.uses`]: changedUses });
     super._processSubmitData(event, form, { [`system.uses`]: changedUses, "flags": flags });
   }
 

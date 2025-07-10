@@ -78,7 +78,7 @@ export class ItemResources {
     if (isset(updateData.flags?.dnd5eItemResources) || isset(updateData.system?.uses)) {
       const actor = item.parent;
       if (actor) {
-        if (item.flags.dnd5eItemResources.resourceBar) {
+        if (item.flags?.dnd5eItemResources?.resourceBar) {
           // If the resource bar is enabled, update the actor's flags with the resource data
           await actor.update({
             [`flags.dnd5eItemResources`]: {
@@ -104,17 +104,47 @@ export class ItemResources {
   }
 
   static async alterCharacterSheet(app, html, data) {
-    if (isset(data.actor.flags.dnd5eItemResources)) {
+    if (isset(data.actor.flags?.dnd5eItemResources)) {
       const itemResources = data.actor.flags.dnd5eItemResources;
       const resourceKeys = Object.keys(itemResources);
       if (resourceKeys.length > 0) {
         const template_file = "modules/dnd5e-item-resources/templates/item-resource-sheet-bar.hbs";
+        let cleanKeys = [];
+
+        let sidebarClasses = '.sidebar .stats'
+        let append = true;
+
+        if (app.classList.value.includes('tidy5e-sheet')) {
+          // Tidy5e specific handling
+          sidebarClasses = '.attributes .side-panel';
+          append = false;
+        }
+
+        let tempHtml = $('<div class="resource-bar-container"></div>');
+
+        if ($(sidebarClasses + ' .resource-bar-container', html).length > 0) {
+          // If the resource bar container already exists, clear it
+          $(sidebarClasses + ' .resource-bar-container', html).remove();
+        }
+        // Create a new container for the resource bars
+        if (append) {
+          $(sidebarClasses, html).append(tempHtml);
+        } else {
+          $(sidebarClasses, html).prepend(tempHtml);
+        }
+
         for (const key of resourceKeys) {
           if (itemResources[key] === null) {
             continue; // Skip if the resource data is null
           }
           const Item = data.actor.items.get(key);
+          if (!Item) {
+            //store leftover keys.
+            cleanKeys.push(itemResources[key]);
+            continue; // Skip non existing items.
+          }
           const resourceData = itemResources[key];
+          const uses = Item.system.uses;
           const template_data = {
             item: Item,
             itemId: key,
@@ -122,15 +152,35 @@ export class ItemResources {
             barFirstColor: resourceData.barFirstColor || ITEM_RESOURCES_DEFAULTS.barFirstColor,
             barSecondColor: resourceData.barSecondColor || ITEM_RESOURCES_DEFAULTS.barSecondColor,
             animation: resourceData.animation || ITEM_RESOURCES_DEFAULTS.animation,
-            value: resourceData.uses.max - resourceData.uses.spent,
-            max: resourceData.uses.max,
-            percent: (resourceData.uses.max - resourceData.uses.spent) / resourceData.uses.max * 100
+            value: uses.max - uses.spent,
+            max: uses.max,
+            percent: (uses.max - uses.spent) / uses.max * 100
           }
           const rendered_html = await foundry.applications.handlebars.renderTemplate(template_file, template_data);
-          $('.sidebar .stats', html).append(rendered_html);
+
+          tempHtml.append(rendered_html);
         }
 
-        $('.sidebar .stats', html).on('click', '.resource-config', async (event) => {
+        if (append) {
+          $(sidebarClasses, html).append(tempHtml);
+        } else {
+          $(sidebarClasses, html).prepend(tempHtml);
+        }
+
+        // remove leftovers
+        if (cleanKeys.length > 0) {
+          // Create an update object with all keys to be removed
+          const deleteFlags = Object.fromEntries(
+            cleanKeys.map(key => [`flags.dnd5eItemResources.-=${key}`, null])
+          );
+
+          // Perform single update to remove all invalid keys
+          await data.actor.update(deleteFlags);
+        }
+
+
+
+        $(sidebarClasses, html).on('click', '.resource-config', async (event) => {
           const itemId = event.currentTarget.dataset.id;
           let config = new ResourcePopupConfig({ document: data.actor.items.get(itemId) });
           config?.render(true);

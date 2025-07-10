@@ -27,7 +27,7 @@ Hooks.on("renderItemSheet5e", async (app, html, data) => {
   ItemResources.renderItemResourceOptions(app, html, data);
 })
 
-Hooks.on("renderCharacterActorSheet", (app, html, data) => {
+Hooks.on("renderActorSheetV2", (app, html, data) => {
   ItemResources.alterCharacterSheet(app, html, data);
 });
 
