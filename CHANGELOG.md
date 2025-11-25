@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.1.10]
+
+- Added new animations.
+
 ## [1.1.00]
 
 - Some refactoring.
