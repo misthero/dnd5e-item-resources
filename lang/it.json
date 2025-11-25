@@ -10,5 +10,17 @@
   "dnd5e-item-resources.energyAnimation": "Energia",
   "dnd5e-item-resources.energyHAnimation": "Energia Orizzontale",
   "dnd5e-item-resources.bubblesAnimation": "Bolle",
-  "dnd5e-item-resources.starAnimation": "Stelle"
+  "dnd5e-item-resources.starAnimation": "Stelle",
+  "dnd5e-item-resources.fireAnimation": "Fuoco",
+  "dnd5e-item-resources.bloodAnimation": "Sangue",
+  "dnd5e-item-resources.matrixAnimation": "Matrice",
+  "dnd5e-item-resources.particlesAnimation": "Particelle",
+  "dnd5e-item-resources.alienAnimation": "Ooze",
+  "dnd5e-item-resources.wavesAnimation": "Onde",
+  "dnd5e-item-resources.snowAnimation": "Neve",
+  "dnd5e-item-resources.liquidAnimation": "Liquido",
+  "dnd5e-item-resources.cyberAnimation": "Cyber",
+  "dnd5e-item-resources.smokeAnimation": "Fumo",
+  "dnd5e-item-resources.vortexAnimation": "Vortice",
+  "dnd5e-item-resources.fluxAnimation": "Flusso"
 }

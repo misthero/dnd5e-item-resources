@@ -1,53 +1,56 @@
 {
-    "id": "dnd5e-item-resources",
-    "title": "5e - Resource trackers",
-    "description": "Add custom trackers for your resources to the character sheet.",
-    "version": "1.1.00",
-    "compatibility": {
-        "minimum": "13",
-        "verified": "13.345"
-    },
-    "relationships": {
-        "systems": [
-            {
-                "id": "dnd5e",
-                "type": "system",
-                "manifest": "https://raw.githubusercontent.com/foundryvtt/dnd5e/master/system.json",
-                "compatibility": {
-                    "verified": "5.0.4",
-                    "minimum": "5.0.0"
-                }
-            }
-        ]
-    },
-    "url": "https://github.com/misthero/dnd5e-item-resources",
-    "manifest": "https://github.com/misthero/dnd5e-item-resources/releases/latest/download/module.json",
-    "download": "https://github.com/misthero/dnd5e-item-resources/releases/download/v1.1.00/dnd5e-item-resources.zip",
-    "authors": [
-        {
-            "name": "misthero",
-            "url": "https://github.com/misthero",
-            "flags": {}
+  "id": "dnd5e-item-resources",
+  "title": "5e - Resource trackers",
+  "description": "Add custom trackers for your resources to the character sheet.",
+  "version": "1.1.00",
+  "compatibility": {
+    "minimum": "13",
+    "verified": "13.346"
+  },
+  "relationships": {
+    "systems": [
+      {
+        "id": "dnd5e",
+        "type": "system",
+        "manifest": "https://raw.githubusercontent.com/foundryvtt/dnd5e/master/system.json",
+        "compatibility": {
+          "verified": "5.0.4",
+          "minimum": "5.0.0"
         }
-    ],
-    "esmodules": [
-        "scripts/main.js"
-    ],
-    "styles": [
-        "css/item-resources-styles.css"
-    ],
-    "languages": [
-        {
-            "lang": "en",
-            "name": "English",
-            "path": "lang/en.json",
-            "flags": {}
-        },
-        {
-            "lang": "it",
-            "name": "Italiano",
-            "path": "lang/it.json",
-            "flags": {}
-        }
+      }
     ]
+  },
+  "url": "https://github.com/misthero/dnd5e-item-resources",
+  "manifest": "https://github.com/misthero/dnd5e-item-resources/releases/latest/download/module.json",
+  "download": "https://github.com/misthero/dnd5e-item-resources/releases/download/v1.1.00/dnd5e-item-resources.zip",
+  "authors": [
+    {
+      "name": "misthero",
+      "url": "https://github.com/misthero",
+      "flags": {}
+    }
+  ],
+  "esmodules": [
+    "scripts/main.js"
+  ],
+  "styles": [
+    {
+      "src": "css/item-resources-styles.css"
+    }
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json",
+      "flags": {}
+    },
+    {
+      "lang": "it",
+      "name": "Italiano",
+      "path": "lang/it.json",
+      "flags": {}
+    }
+  ],
+  "flags": {}
 }

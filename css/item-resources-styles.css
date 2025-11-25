@@ -7,6 +7,18 @@
   --star-background: url('../img/seamless-energy-clouds.jpg');
   --energy-background: url('../img/energy.png');
   --bubbles-background: url('../img/bubbles.png');
+  --fire-background: url('../img/fire-slow.gif');
+  --blood-background: url('../img/bloodbw.gif');
+  --matrix-background: url('../img/matrix2.gif');
+  --particles-background: url('../img/particles.gif');
+  --alien-background: url('../img/alienFluid.gif');
+  --waves-background: url('../img/waves.gif');
+  --snow-background: url('../img/snow.gif');
+  --liquid-background: url('../img/liquid.gif');
+  --cyber-background: url('../img/cyberlight.gif');
+  --smoke-background: url('../img/smoke.gif');
+  --vortex-background: url('../img/vortex.gif');
+  --flux-background: url('../img/flux.gif');
 }
 
 .resource-bar-container+.meter-group,
@@ -29,7 +41,11 @@
   overflow: hidden;
 }
 
-.meter-group.resource-bar .meter.progress, .meter-group.resource-bar .meter .progress {
+.tidy5e-sheet.application:where(.quadrone) .resource-bar .meter.progress,
+.tidy5e-sheet.application:where(.quadrone) .resource-bar .meter .progress,
+.meter-group.resource-bar .meter.progress,
+.meter-group.resource-bar .meter .progress {
+  --meter-height: 1.2rem;
   --bar-percentage: 0%;
   --border-width: 3px;
   overflow: hidden;
@@ -46,16 +62,24 @@
   color: var(--color-text-light-0);
 }
 
-.meter-group.resource-bar .meter.progress::before, .meter-group.resource-bar .meter .progress::before {
+.meter-group.resource-bar .meter .label .value,
+.meter-group.resource-bar .meter .label .max {
+  text-shadow: 0 0 3px var(--dnd5e-shadow-45), 0 0 2px var(--dnd5e-shadow-45), 0 0 1px var(--dnd5e-shadow-45);
+}
+
+div+.resource-bar-container {
+  margin-top: 0.5rem;
+}
+
+.tidy5e-sheet.application:where(.quadrone) .resource-bar .meter.progress:before,
+.tidy5e-sheet.application:where(.quadrone) .resource-bar .meter .progress:before,
+.meter-group.resource-bar .meter.progress::before,
+.meter-group.resource-bar .meter .progress::before {
   content: "";
   position: absolute;
   block-size: 100%;
-  inline-size: var(--bar-percentage);
   box-shadow: 0 0 6px var(--dnd5e-shadow-45);
   clip-path: polygon(0 0, calc(100% + 6px) 0, calc(100% + 6px) 100%, 0 100%);
-}
-
-.meter-group.resource-bar .progress:before {
   border-color: var(--bar-first-color);
   inline-size: var(--bar-percentage);
   background: linear-gradient(to right, var(--bar-first-color), var(--bar-second-color), var(--bar-first-color));
@@ -91,6 +115,14 @@
   letter-spacing: 0.8px;
 }
 
+.meter-group.resource-bar>.label {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  align-content: center;
+  justify-content: space-between;
+}
+
 .resource-bar-config input[type="checkbox"]:before {
   color: var(--dnd5e-color-gold);
 }
@@ -108,38 +140,129 @@
   border: 0;
 }
 
+.tidy5e-sheet.application:where(.quadrone) .resource-bar .meter.progress[class*="animation-img"]:before,
 .meter-group.resource-bar .progress[class*="animation-img"]:before {
-  background-size: 200px auto, 200% auto !important;
+  background-size: 200px auto, 200% auto;
   animation-duration: 20s;
   animation-iteration-count: infinite;
   box-shadow: -10px 0 10px -10px var(--bar-first-color) inset, 3px 0 3px -3px #000 inset, 0 3px 3px -3px #000 inset, 0 -3px 3px -3px #000 inset;
   background-blend-mode: overlay;
 }
 
-
-
 .meter-group.resource-bar .label {
   display: flex;
 }
 
+.tidy5e-sheet.application:where(.quadrone) .resource-bar .progress.animation-img-energy:before,
+.tidy5e-sheet.application:where(.quadrone) .resource-bar .progress.animation-img-energy-h:before,
 .meter-group.resource-bar .progress.animation-img-energy:before,
 .meter-group.resource-bar .progress.animation-img-energy-h:before {
   background-image: var(--energy-background), linear-gradient(to right, var(--bar-first-color), var(--bar-second-color), var(--bar-first-color));
 }
 
+.tidy5e-sheet.application:where(.quadrone) .resource-bar .progress.animation-img-energy-h:before,
 .meter-group.resource-bar .progress.animation-img-energy-h:before {
   background-size: 100px auto, 200% auto !important;
 }
 
+.tidy5e-sheet.application:where(.quadrone) .resource-bar .progress.animation-img-bubbles:before,
 .meter-group.resource-bar .progress.animation-img-bubbles:before {
   background-image: var(--bubbles-background), linear-gradient(to right, var(--bar-first-color), var(--bar-second-color), var(--bar-first-color));
 }
 
+.tidy5e-sheet.application:where(.quadrone) .resource-bar .progress.animation-img-star:before,
 .meter-group.resource-bar .progress.animation-img-star:before {
   background-image: var(--star-background), linear-gradient(to right, var(--bar-first-color), var(--bar-second-color), var(--bar-first-color));
 }
 
+.tidy5e-sheet.application:where(.quadrone) .resource-bar .progress.animation-img-fire:before,
+.meter-group.resource-bar .progress.animation-img-fire:before {
+  background-image: var(--fire-background), var(--fire-background), linear-gradient(to right, var(--bar-first-color), var(--bar-second-color), var(--bar-first-color));
+  background-size: 40px auto, 80px auto, 200% auto !important;
+  background-position: bottom left, bottom center, 0 0 !important;
+  animation: none;
+  background-repeat: repeat-x;
+  filter: blur(0.5px);
+}
 
+.tidy5e-sheet.application:where(.quadrone) .resource-bar .progress.animation-img-blood:before, .meter-group.resource-bar .progress.animation-img-blood:before {
+  background-image: var(--blood-background), linear-gradient(to right, var(--bar-first-color), var(--bar-second-color), var(--bar-first-color));
+  background-size: 100px auto, 200% auto !important;
+  background-position: bottom left, 0 0 !important;
+  animation: none;
+  background-repeat: repeat-x;
+}
+
+.tidy5e-sheet.application:where(.quadrone) .resource-bar .progress.animation-img-matrix:before, .meter-group.resource-bar .progress.animation-img-matrix:before {
+  background-image: var(--matrix-background), linear-gradient(to right, var(--bar-first-color), var(--bar-second-color), var(--bar-first-color));
+  background-size: 100px auto, 200% auto !important;
+  background-position: top left, 0 0 !important;
+  animation: none;
+  background-repeat: repeat-x;
+}
+
+.tidy5e-sheet.application:where(.quadrone) .resource-bar .progress.animation-img-particles:before, .meter-group.resource-bar .progress.animation-img-particles:before {
+  background-image: var(--particles-background), linear-gradient(to right, var(--bar-first-color), var(--bar-second-color), var(--bar-first-color));
+  background-size: 200% auto, 200% auto !important;
+  background-position: right center, 0 0 !important;
+  animation: none;
+  background-repeat: repeat-x;
+}
+
+.tidy5e-sheet.application:where(.quadrone) .resource-bar .progress.animation-img-alien:before, .meter-group.resource-bar .progress.animation-img-alien:before {
+  background-image: var(--alien-background), linear-gradient(to right, var(--bar-first-color), var(--bar-second-color), var(--bar-first-color));
+  background-size: max(100%, 300px) auto, 200% auto !important;
+  background-position: 0 10%, 0 0 !important;
+}
+
+.tidy5e-sheet.application:where(.quadrone) .resource-bar .progress.animation-img-waves:before,
+.meter-group.resource-bar .progress.animation-img-waves:before {
+  background-image: var(--waves-background), linear-gradient(to right, var(--bar-first-color), var(--bar-second-color), var(--bar-first-color));
+  background-size: 100% auto, 200% auto !important;
+  background-position: 50%, 0 0 !important;
+}
+
+.tidy5e-sheet.application:where(.quadrone) .resource-bar .progress.animation-img-snow:before,
+.meter-group.resource-bar .progress.animation-img-snow:before {
+  background-image: var(--snow-background), linear-gradient(to right, var(--bar-first-color), var(--bar-second-color), var(--bar-first-color));
+  background-size: max(100%, 300px) auto, 200% auto !important;
+  background-position: 0 50%, 0 0 !important;
+}
+
+.tidy5e-sheet.application:where(.quadrone) .resource-bar .progress.animation-img-liquid:before,
+.meter-group.resource-bar .progress.animation-img-liquid:before {
+  background-image: var(--liquid-background), linear-gradient(to right, var(--bar-first-color), var(--bar-second-color), var(--bar-first-color));
+  background-size: max(100%, 300px) auto, 200% auto !important;
+  background-position: 50%, 0 0 !important;
+}
+
+.tidy5e-sheet.application:where(.quadrone) .resource-bar .progress.animation-img-cyber:before,
+.meter-group.resource-bar .progress.animation-img-cyber:before {
+  background-image: var(--cyber-background), linear-gradient(to right, var(--bar-first-color), var(--bar-second-color), var(--bar-first-color));
+  background-size: max(100%, 300px) auto, 200% auto !important;
+  background-position: 50%, 0 0 !important;
+}
+
+.tidy5e-sheet.application:where(.quadrone) .resource-bar .progress.animation-img-smoke:before, .meter-group.resource-bar .progress.animation-img-smoke:before {
+  background-image: var(--smoke-background), linear-gradient(to right, var(--bar-first-color), var(--bar-second-color), var(--bar-first-color));
+  background-size: 200% auto, 200% auto !important;
+  background-position: 50%, 0 0 !important;
+}
+
+.tidy5e-sheet.application:where(.quadrone) .resource-bar .progress.animation-img-vortex:before, .meter-group.resource-bar .progress.animation-img-vortex:before {
+  background-image: var(--vortex-background), linear-gradient(to right, var(--bar-first-color), var(--bar-second-color), var(--bar-first-color));
+  background-size: max(100%, 200px) 60px, 100% auto !important;
+  background-position: 50%, 0 0 !important;
+}
+
+.tidy5e-sheet.application:where(.quadrone) .resource-bar .progress.animation-img-flux:before,
+.meter-group.resource-bar .progress.animation-img-flux:before {
+  background-image: var(--flux-background), linear-gradient(to right, var(--bar-first-color), var(--bar-second-color), var(--bar-first-color));
+  background-size: max(100%, 200px) 60px, 100% auto !important;
+  background-position: 50%, 0 0 !important;
+}
+
+/** scroll animation */
 @keyframes scroll {
   0% {
     background-position: 0 0
@@ -150,6 +273,7 @@
   }
 }
 
+/** energy animation */
 @keyframes img-energy {
   0% {
     background-position: 0 0;
@@ -160,6 +284,7 @@
   }
 }
 
+/** energy animation horizontal */
 @keyframes img-energy-h {
   0% {
     background-position: 0 0;
@@ -170,6 +295,7 @@
   }
 }
 
+/** bubbles animation */
 @keyframes img-bubbles {
   0% {
     background-position: 0 0;
@@ -180,6 +306,7 @@
   }
 }
 
+/** star animation */
 @keyframes img-star {
   0% {
     background-position: 0 0;

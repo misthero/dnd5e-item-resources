@@ -116,7 +116,7 @@ export class ItemResources {
 
         if (app.classList.value.includes('tidy5e-sheet')) {
           // Tidy5e specific handling
-          sidebarClasses = '.attributes .side-panel';
+          sidebarClasses = '.sidebar .favorites.sidebar-tab-contents';
           append = false;
         }
 
