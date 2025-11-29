@@ -2,7 +2,7 @@
   --bar-first-color: #3a0e5f;
   --bar-second-color: #8a40c7;
   --bar-animation-name: scroll;
-  --border-width: 3px;
+  --bar-border-width: 0px;
   --bar-percentage: 0%;
   --star-background: url('../img/seamless-energy-clouds.jpg');
   --energy-background: url('../img/energy.png');
@@ -28,10 +28,8 @@
 }
 
 .meter-group.resource-bar .meter {
-  --meter-background: var(--dnd5e-color-light-gray);
   border: 1px solid var(--dnd5e-color-gold);
   border-radius: 4px;
-  background: var(--meter-background);
   font-family: var(--dnd5e-font-roboto);
   font-weight: bold;
   box-shadow: inset 0 0 16px rgba(0, 0, 0, 0.25);
@@ -47,8 +45,9 @@
 .meter-group.resource-bar .meter .progress {
   --meter-height: 1.2rem;
   --bar-percentage: 0%;
-  --border-width: 3px;
+  --bar-border-width: 0px;
   overflow: hidden;
+  height: 1.5rem;
 }
 
 .meter-group.resource-bar .meter .label {
@@ -71,22 +70,22 @@ div+.resource-bar-container {
   margin-top: 0.5rem;
 }
 
-.tidy5e-sheet.application:where(.quadrone) .resource-bar .meter.progress:before,
-.tidy5e-sheet.application:where(.quadrone) .resource-bar .meter .progress:before,
-.meter-group.resource-bar .meter.progress::before,
-.meter-group.resource-bar .meter .progress::before {
+.tidy5e-sheet.application:where(.quadrone) .resource-bar .meter.progress:before, .tidy5e-sheet.application:where(.quadrone) .resource-bar .meter .progress:before, .meter-group.resource-bar .meter.progress::before, .meter-group.resource-bar .meter .progress::before {
   content: "";
   position: absolute;
   block-size: 100%;
   box-shadow: 0 0 6px var(--dnd5e-shadow-45);
   clip-path: polygon(0 0, calc(100% + 6px) 0, calc(100% + 6px) 100%, 0 100%);
   border-color: var(--bar-first-color);
-  inline-size: var(--bar-percentage);
+  inline-size: calc(var(--bar-percentage) - 2px);
   background: linear-gradient(to right, var(--bar-first-color), var(--bar-second-color), var(--bar-first-color));
   animation: var(--bar-animation-name) 5s linear infinite;
   background-size: 200% 100%;
   border-style: solid;
-  border-width: 0 var(--border-width) 0 0;
+  border-width: 0 var(--bar-border-width) 0 0;
+  border-radius: 2px;
+  height: calc(100% - 2px);
+  inset: 1px auto 1px 1px;
 }
 
 .resource-uses .form-fields>* {
@@ -113,6 +112,8 @@ div+.resource-bar-container {
 .tidy5e-sheet .resource-bar .label {
   font-size: 11px;
   letter-spacing: 0.8px;
+  height: 16px;
+  line-height: 1rem;
 }
 
 .meter-group.resource-bar>.label {
@@ -145,7 +146,7 @@ div+.resource-bar-container {
   background-size: 200px auto, 200% auto;
   animation-duration: 20s;
   animation-iteration-count: infinite;
-  box-shadow: -10px 0 10px -10px var(--bar-first-color) inset, 3px 0 3px -3px #000 inset, 0 3px 3px -3px #000 inset, 0 -3px 3px -3px #000 inset;
+  box-shadow: inset 0 1px 0 1px var(--dnd5e-highlight-40);
   background-blend-mode: overlay;
 }
 
@@ -175,14 +176,13 @@ div+.resource-bar-container {
   background-image: var(--star-background), linear-gradient(to right, var(--bar-first-color), var(--bar-second-color), var(--bar-first-color));
 }
 
-.tidy5e-sheet.application:where(.quadrone) .resource-bar .progress.animation-img-fire:before,
-.meter-group.resource-bar .progress.animation-img-fire:before {
-  background-image: var(--fire-background), var(--fire-background), linear-gradient(to right, var(--bar-first-color), var(--bar-second-color), var(--bar-first-color));
-  background-size: 40px auto, 80px auto, 200% auto !important;
-  background-position: bottom left, bottom center, 0 0 !important;
+.tidy5e-sheet.application:where(.quadrone) .resource-bar .progress.animation-img-fire:before, .meter-group.resource-bar .progress.animation-img-fire:before {
+  background-image: var(--fire-background), linear-gradient(to right, var(--bar-first-color), var(--bar-second-color), var(--bar-first-color));
+  background-size: 50px auto, 200% auto !important;
+  background-position: bottom left, 0 0 !important;
   animation: none;
   background-repeat: repeat-x;
-  filter: blur(0.5px);
+  /* filter: blur(0.5px); */
 }
 
 .tidy5e-sheet.application:where(.quadrone) .resource-bar .progress.animation-img-blood:before, .meter-group.resource-bar .progress.animation-img-blood:before {

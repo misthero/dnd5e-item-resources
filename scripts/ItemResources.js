@@ -161,11 +161,11 @@ export class ItemResources {
           tempHtml.append(rendered_html);
         }
 
-        if (append) {
+        /*if (append) {
           $(sidebarClasses, html).append(tempHtml);
         } else {
           $(sidebarClasses, html).prepend(tempHtml);
-        }
+        }*/
 
         // remove leftovers
         if (cleanKeys.length > 0) {
