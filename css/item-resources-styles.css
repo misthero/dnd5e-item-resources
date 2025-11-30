@@ -71,17 +71,45 @@ div+.resource-bar-container {
 }
 
 .ms-auto {
-  margin-left: auto;
+  margin-left: auto !important;
 }
 
 .ms-3 {
-  margin-left: 1rem;
+  margin-left: 1rem !important;
+}
+
+.tidy5e-sheet.sheet-mode-play .resource-bar .unbutton {
+  display: none;
+}
+
+.tidy5e-sheet.sheet-mode-play .resource-bar .ms-3 {
+  margin-left: 0 !important;
 }
 
 input.bar_value.seamless-input {
   background: transparent;
   position: relative;
   z-index: 3;
+}
+
+.tidy5e-sheet .resource-bar .unbutton {
+  padding: 0 4px !important;
+}
+
+.tidy5e-sheet .resource-bar-config .form-group .form-fields {
+  flex-wrap: wrap;
+}
+
+.tidy5e-sheet .resource-bar .move-down,
+.tidy5e-sheet .resource-bar .move-up {
+  margin-right: 4px !important;
+  color: var(--dnd5e-color-gold);
+}
+
+.tidy5e-sheet input.seamless-input {
+  background: transparent;
+  border: 0;
+  text-align: left;
 }
 
 .tidy5e-sheet.application:where(.quadrone) .resource-bar .meter.progress:before, .tidy5e-sheet.application:where(.quadrone) .resource-bar .meter .progress:before, .meter-group.resource-bar .meter.progress::before, .meter-group.resource-bar .meter .progress::before {

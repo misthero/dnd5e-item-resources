@@ -36,6 +36,12 @@ Hooks.once("i18nInit", () => {
 
 // Register the ItemResources class to handle item resource rendering and updates
 Hooks.on("renderItemSheet5e", async (app, html, data) => {
+  console.log("Rendering Item Sheet:", app.item.name);
+  ItemResources.renderItemResourceOptions(app, html, data);
+})
+
+Hooks.on("renderTidy5eItemSheetQuadrone", async (app, html, data) => {
+  console.log("Rendering Item Sheet Tidy:", app.item.name);
   ItemResources.renderItemResourceOptions(app, html, data);
 })
 

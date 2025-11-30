@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.2.10]
+
+- tidy5e item sheet compatibility
+- CSS layout improvements.
+
 ## [1.2.00]
 
 - Added controls for sorting resource bars.

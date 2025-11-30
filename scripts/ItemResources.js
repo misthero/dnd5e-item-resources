@@ -28,9 +28,16 @@ export class ItemResources {
 
       const template_file = "/modules/dnd5e-item-resources/templates/item-resource-config.hbs";
       foundry.applications.handlebars.renderTemplate(template_file, template_data).then(function (html) {
-        const detailsSection = htmlElem.querySelector('section.details');
+        let detailsSection = htmlElem.querySelector('section.details');
+        const tidyDetailsSection = htmlElem.querySelector('.tidy-tab.details');
+        if (tidyDetailsSection) {
+          // Tidy5e specific handling
+          detailsSection = tidyDetailsSection;
+        }
         const tempDiv = document.createElement('div');
         tempDiv.innerHTML = html;
+        // Remove previous resource bar configs
+        detailsSection.querySelectorAll('.resource-bar-config').forEach(el => el.remove());
         Array.from(tempDiv.childNodes).forEach(node => detailsSection.appendChild(node));
 
         // restore scroll position if it exists
