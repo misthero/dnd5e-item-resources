@@ -1,9 +1,19 @@
-<div class="meter-group resource-bar">
+<div class="meter-group resource-bar" data-itemId="{{itemId}}">
   <div class="label roboto-condensed-upper">
-    <span>{{item.name}}</span>
     {{#if editable}}
-    <button class="config-button unbutton resource-config" data-action="configResource" data-id="{{item._id}}"
-      data-tooltip="{{ item.name }}" aria-label="{{localize "dnd5e-item-resources.config"}} {{item.name}}">
+    <button class="move-up unbutton" {{#unless canMoveUp}}disabled{{/unless}} data-itemid="{{itemId}}">
+      <i class="fa fa-arrow-up"></i>
+    </button>
+    {{/if}}
+    {{#if editable}}
+    <button class="move-down unbutton" {{#unless canMoveDown}}disabled{{/unless}} data-itemid="{{itemId}}">
+      <i class="fa fa-arrow-down"></i>
+    </button>
+    {{/if}}
+    <span {{#if editable}} class="ms-3" {{/if}}>{{item.name}}</span>
+    {{#if editable}}
+    <button class="config-button unbutton resource-config ms-auto" data-action="configResource" data-id="{{item._id}}"
+      data-tooltip="{{ item.name }}" aria-label="{{localize 'dnd5e-item-resources.config'}} {{item.name}}">
       <i class="fas fa-cog"></i>
     </button>
     {{/if}}
@@ -12,10 +22,12 @@
   <div class="meter progress animation-{{animation}}" role="meter" aria-valuemin="0" aria-valuenow="{{value}}"
     aria-valuemax="{{max}}"
     style="--bar-animation-name: {{animation}}; --bar-percentage: {{percent}}%; --bar-first-color: {{barFirstColor}}; --bar-second-color: {{barSecondColor}};">
-    <div class="label">
+    <div class="label label_{{itemId}}" data-itemid="{{itemId}}">
       <span class="value">{{value}}</span>
       <span class="separator">/</span>
       <span class="max">{{max}}</span>
     </div>
+    <input hidden type="text" data-dtype="Number" name="bar_value_{{itemId}}" data-itemid="{{itemId}}"
+      class="bar_value seamless-input" value="{{value}}">
   </div>
 </div>

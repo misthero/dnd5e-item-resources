@@ -70,6 +70,20 @@ div+.resource-bar-container {
   margin-top: 0.5rem;
 }
 
+.ms-auto {
+  margin-left: auto;
+}
+
+.ms-3 {
+  margin-left: 1rem;
+}
+
+input.bar_value.seamless-input {
+  background: transparent;
+  position: relative;
+  z-index: 3;
+}
+
 .tidy5e-sheet.application:where(.quadrone) .resource-bar .meter.progress:before, .tidy5e-sheet.application:where(.quadrone) .resource-bar .meter .progress:before, .meter-group.resource-bar .meter.progress::before, .meter-group.resource-bar .meter .progress::before {
   content: "";
   position: absolute;
@@ -120,8 +134,7 @@ div+.resource-bar-container {
   display: flex;
   width: 100%;
   align-items: center;
-  align-content: center;
-  justify-content: space-between;
+  justify-content: start;
 }
 
 .resource-bar-config input[type="checkbox"]:before {

@@ -44,6 +44,6 @@ Hooks.on("renderActorSheetV2", (app, html, data) => {
 });
 
 Hooks.on("updateItem", ItemResources.updateItemResources);
-Hooks.on("createItem", ItemResources.createItemResources);
+//Hooks.on("createItem", ItemResources.createItemResources);
 Hooks.on("preDeleteItem", ItemResources.preDeleteItemResources);
-Hooks.on("preUpdateItem", ItemResources.preUpdateItemResources);
+//Hooks.on("preUpdateItem", ItemResources.preUpdateItemResources);

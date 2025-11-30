@@ -37,9 +37,6 @@ export class ResourcePopupConfig extends dnd5e.applications.actor.BaseConfigShee
   async _preparePartContext(partId, context, options) {
     context = await super._preparePartContext(partId, context, options);
 
-
-    const actor = this.document.parent;
-
     context.system = this.document.system;
     context.flags = this.document.flags;
     context.flags.dnd5eItemResources = this.document.flags?.dnd5eItemResources ?? ITEM_RESOURCES_DEFAULTS;
@@ -79,7 +76,6 @@ export class ResourcePopupConfig extends dnd5e.applications.actor.BaseConfigShee
 
   /** @override */
   _processSubmitData(event, form, submitData) {
-    const actor = this.document.parent;
     const item = this.document;
 
     const FormDataExtended = new foundry.applications.ux.FormDataExtended(this.element);
@@ -90,7 +86,6 @@ export class ResourcePopupConfig extends dnd5e.applications.actor.BaseConfigShee
     const flags = foundry.utils.mergeObject(item.flags, data.flags);
     // Check if the uses object has changed
     this.document.system.uses = changedUses;
-    //item.update({ [`system.uses`]: changedUses });
     super._processSubmitData(event, form, { [`system.uses`]: changedUses, "flags": flags });
   }
 
