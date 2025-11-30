@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.2.00]
+
+- Added controls for sorting resource bars.
+- Direct edit resource values clicking on the bar.
+- CSS layout improvements.
+
 ## [1.1.10]
 
 - Added new animations.
