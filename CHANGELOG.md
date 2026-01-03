@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.2.20]
+
+- Improves the _processSubmitData method to only submit changed properties for system.uses and flags, reducing unnecessary updates.
+
 ## [1.2.10]
 
 - tidy5e item sheet compatibility

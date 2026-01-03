@@ -75,18 +75,41 @@ export class ResourcePopupConfig extends dnd5e.applications.actor.BaseConfigShee
   }
 
   /** @override */
-  _processSubmitData(event, form, submitData) {
+  async _processSubmitData(event, form, submitData) {
     const item = this.document;
-
-    const FormDataExtended = new foundry.applications.ux.FormDataExtended(this.element);
+    const FormDataExtended = new foundry.applications.ux.FormDataExtended(form);
     const data = foundry.utils.expandObject(FormDataExtended.object);
 
-    data.uses.spent = data.uses.max > data.uses.value ? data.uses.max - data.uses.value : 0;
+    // Store original values
+    const originalUses = foundry.utils.duplicate(item.system.uses);
+
+    // Calculate spent based on max and value
+    data.uses.spent = data.uses.max - data.uses.value;
+
+    // Build delta object with only changed properties
+    const deltaUses = {};
+
+    // Only include uses.max if it changed
+    if (data.uses.max !== originalUses.max) {
+      deltaUses.max = data.uses.max;
+    }
+
+    // Only include uses.spent if uses.value changed (which triggers spent recalculation)
+    if (data.uses.value !== originalUses.value) {
+      deltaUses.spent = data.uses.spent;
+    }
+
+    // Merge the changes with the item's system.uses for local state
     const changedUses = foundry.utils.mergeObject(item.system.uses, data.uses);
     const flags = foundry.utils.mergeObject(item.flags, data.flags);
-    // Check if the uses object has changed
+
+    // Await the super's _processSubmitData with only changed properties
+    await super._processSubmitData(event, form, Object.keys(deltaUses).length > 0 ? { [`system.uses`]: deltaUses, "flags": flags } : {});
+
     this.document.system.uses = changedUses;
-    super._processSubmitData(event, form, { [`system.uses`]: changedUses, "flags": flags });
+    this.document.flags = flags;
+    // Refresh the data context and re-render the sheet
+    this.render();
   }
 
   /** Dispatch custom actions */
