@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.3.00]
+ 
+- Bumped Foundry VTT compatibility to v14+
+
 ## [1.2.20]
 
 - Improves the _processSubmitData method to only submit changed properties for system.uses and flags, reducing unnecessary updates.

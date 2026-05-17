@@ -7,13 +7,7 @@
 Create custom resource trackers from every item and show it on your character sheet.
 
 ### Buy me a coffee:
-<a href="https://ko-fi.com/misthero">
-  <img
-    src="https://img.shields.io/badge/ko--fi-Support%20Me-red?style=for-the-badge&logo=ko-fi"
-    alt="Buy me a coffee"
-    width="300"
-  />
-</a>
+[![ko-fi](https://img.shields.io/badge/ko--fi-Support%20Me-red?style=for-the-badge&logo=ko-fi)](https://ko-fi.com/misthero)
 
 
 ## Instruction

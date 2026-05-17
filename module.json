@@ -2,10 +2,10 @@
     "id": "dnd5e-item-resources",
     "title": "5e - Resource trackers",
     "description": "Add custom trackers for your resources to the character sheet.",
-    "version": "1.2.20",
+    "version": "1.3.00",
     "compatibility": {
         "minimum": "13",
-        "verified": "13.351"
+        "verified": "14.361"
     },
     "relationships": {
         "systems": [
@@ -14,7 +14,7 @@
                 "type": "system",
                 "manifest": "https://raw.githubusercontent.com/foundryvtt/dnd5e/master/system.json",
                 "compatibility": {
-                    "verified": "5.2.4",
+                    "verified": "5.3.3",
                     "minimum": "5.0.0"
                 }
             }
@@ -22,7 +22,7 @@
     },
     "url": "https://github.com/misthero/dnd5e-item-resources",
     "manifest": "https://github.com/misthero/dnd5e-item-resources/releases/latest/download/module.json",
-    "download": "https://github.com/misthero/dnd5e-item-resources/releases/download/v1.2.20/dnd5e-item-resources.zip",
+    "download": "https://github.com/misthero/dnd5e-item-resources/releases/download/v1.3.00/dnd5e-item-resources.zip",
     "authors": [
         {
             "name": "misthero",
